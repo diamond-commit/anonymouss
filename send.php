@@ -10,110 +10,58 @@ $id = $_GET["id"];
 <head>
   <meta charset="UTF-8">
   <title>Send Anonymous Message</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" href="anon.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
-  <style>
-    body {
-      background-color: #f4f4f4;
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      margin: 0;
-      overflow-x: hidden;
-    }
-    html, body{
-      overflow-x: hidden
-    }
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(5px);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 70%;
-    }
-
-    textarea {
-      width: 100%;
-      height: 120px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      width: 100%;
-      font-size: 16px;
-      background-color: #631D76;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #AF8CB9;
-    }
-
-    .footer-text {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 13px;
-      color: #888;
-    }
-  </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start px-4">
 
-  <center style="font-family: 'Sacramento'; font-size: 2rem">Welcome to anonymous messages</center>
-  <button onclick="document.getElementById('overlay').style.display = 'flex'" style="background-color:#631D76; margin-top: 13rem; padding: 3rem">
-  Send anonymous message</button>
+  <!-- Header -->
+  <h1 class="text-2xl md:text-3xl font-sans font-bold mt-6 text-center">
+    Welcome to anonymous messages 🕺
+  </h1>
 
-  <div id="overlay">
-    <div id="container">
-      <h2 style="font-family: 'Sacramento'">Send an Anonymous Message</h2>
-      <form id="form">
+  <!-- Send Button -->
+  <button onclick="overlay.style.display='flex'" 
+          class="bg-purple-800 text-white mt-20 md:mt-28 px-8 py-6 rounded-xl text-lg hover:bg-purple-400 transition-colors">
+    Send anonymous message
+  </button>
+
+  <!-- Overlay Form -->
+  <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div class="bg-white w-full max-w-md p-6 rounded-xl shadow-lg flex flex-col gap-4">
+      <h2 class="text-2xl font-bold text-center mb-4">Send an Anonymous Message</h2>
+      <form id="form" class="flex flex-col gap-3">
         <input type="hidden" name="id" value="<?=htmlspecialchars($id)?>">
-        <textarea name="message" placeholder="Type your message here..." required maxlength="200"></textarea>
-        <button type="submit" id="submit">Send Message</button>
-        <button type="button" onclick="document.getElementById('overlay').style.display = 'none'">Cancel</button>
+        <textarea name="message" placeholder="Type your message here..." required maxlength="200"
+                  class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 resize-none"></textarea>
+        <button type="submit" class="bg-purple-800 text-white p-3 rounded-md hover:bg-purple-400 transition-colors">
+          Send Message
+        </button>
+        <button type="button" onclick="overlay.style.display='none'" class="bg-gray-300 text-gray-800 p-3 rounded-md hover:bg-gray-400 transition-colors">
+          Cancel
+        </button>
       </form>
-      <p class="footer-text">This message will be sent anonymously 👻</p>
+      <p class="text-center text-gray-500 text-sm mt-2">This message will be sent anonymously 👻</p>
     </div>
   </div>
 
-  <center style="font-family: 'Sacramento'; font-size: 2rem; margin-top: 1rem">
-    Want your own anonymous link?
-    <a href="index.php">Register here</a>
-  </center>
+  <!-- Footer -->
+  <p class="text-center text-gray-700 mt-6 text-lg">
+    Want your own anonymous link? 
+    <a href="index.php" class="text-blue-500 hover:underline">Register here</a>
+  </p>
 
+  <!-- JS -->
   <script>
-    let form = document.getElementById("form");
+    const form = document.getElementById("form");
+    const overlay = document.getElementById("overlay");
 
-    form.addEventListener("submit", function(e){
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      let formData = new FormData(form);
-      send(formData);
-    });
+      const formData = new FormData(form);
 
-    async function send(formData) {
       try {
-        let response = await fetch("sendval.php", {
+        const response = await fetch("sendval.php", {
           method: "POST",
           body: formData
         });
@@ -123,11 +71,11 @@ $id = $_GET["id"];
           return;
         }
 
-        let data = await response.json();
+        const data = await response.json();
 
         if (data.success) {
           alert(data.message);
-          document.getElementById("overlay").style.display = "none";
+          overlay.style.display = "none";
           form.reset();
         } else {
           console.log(data.message);
@@ -136,7 +84,7 @@ $id = $_GET["id"];
       } catch (error) {
         console.log(error);
       }
-    }
+    });
   </script>
 
 </body>

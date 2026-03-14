@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   delButtons.forEach(button => {
     button.addEventListener("click", function () {
       let message_id = button.dataset.id;
-      del(message_id);
+      del(message_id)
     });
   });
 

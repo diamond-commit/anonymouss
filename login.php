@@ -1,161 +1,65 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="anon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
-  <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #f4f4f4;
-  color: #000;
-  height: 100vh;
-}
-
-.container {
-  background-color: #fff;
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
-  margin: 40px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.input-group {
-  margin-bottom: 15px;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #631D76;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #AF8CB9;
-}
-
-.redirect {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-  color: #777;
-}
-
-.redirect a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.redirect a:hover {
-  text-decoration: underline;
-}
-
-.error-message {
-  margin-top: -1.2rem;
-  background-color: #ffe5e5;
-  width: 100%;
-  color: #cc0000;
-  padding: 10px 15px;
-  border: 1px solid #ff9999;
-  border-radius: 4px;
-  font-size: 14px;
-  text-align: center;
-}
-
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.spinner {
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 5px solid #ccc;
-  border-top: 5px solid #222;
-  border-radius: 50%;
-  animation: spin 0.9s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-  </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-       <center style="color: black; font-size: 3rem; font-family: 'sacramento';">Welcome to anonymous messages🕺</center>
-  <div class="container">
-    <form id="form">
-      <h2>Login</h2>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start">
 
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email Address" required />
+  <!-- Header -->
+  <h1 class="text-xl mt-4 md:text-3xl font-sans text-black font-bold text-center">
+    Welcome to anonymous messages 🕺
+  </h1>
+
+  <!-- Container -->
+  <div class="bg-white mt-8 p-8 rounded-xl shadow-md w-11/12 max-w-md">
+    <h2 class="text-2xl text-center text-gray-800 mb-6 font-semibold">Login</h2>
+
+    <!-- Form -->
+    <form id="form" class="flex flex-col gap-4">
+      <div class="flex flex-col">
+        <label for="email" class="mb-1 text-gray-700 text-sm">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email Address" required
+               class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
       </div>
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Your Password" required />
+      <div class="flex flex-col">
+        <label for="password" class="mb-1 text-gray-700 text-sm">Password</label>
+        <input type="password" id="password" name="password" placeholder="Your Password" required
+               class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
       </div>
 
-      <button >Login</button>
-      <p class="redirect">Don't have an account? <a href="index.php">Register</a></p>
+      <button type="submit"
+              class="p-3 bg-purple-800 text-white rounded-md text-lg hover:bg-purple-400 transition-colors">
+        Login
+      </button>
     </form>
+
+    <!-- Footer -->
+    <div class="text-center text-gray-600 text-sm mt-4">
+      Don't have an account? 
+      <a href="index.php" class="text-blue-500 hover:underline">Register</a>
+    </div>
   </div>
-   <div id="loader" style="display: none;">
-  <div class="spinner"></div>
-</div>
-    <center style="font-family: 'sacramento'; font-size: 2rem">
-      Forgot ur password?
-       <a href="forgot.php">Recover here</a>
-    </center>
-    <div class="error-message" id="errorBox" style="display: none;"></div>
+
+  <!-- Forgot Password -->
+  <div class="mt-4 text-center text-black text-lg">
+    Forgot your password? 
+    <a href="forgot.php" class="text-blue-500 hover:underline">Recover here</a>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 bg-white bg-opacity-70 flex items-center justify-center hidden">
+    <div class="w-6 h-6 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
+  </div>
+
+  <!-- Error Box -->
+  <div id="errorBox" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md text-center mt-4 w-11/12 max-w-md"></div>
+
+  <!-- JS -->
+  <script src="login.js"></script>
 </body>
-<script src="login.js"></script>
 </html>

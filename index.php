@@ -1,151 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" href="anon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Register</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anonymous Messages | anonymous.pxxl.click</title>
 
-    body {
-      background-color: #f4f4f4;
-      height: 100vh;
-      color: #000;
-    }
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Send and receive anonymous messages easily and securely on anonymous.pxxl.click.">
+  <meta name="keywords" content="anonymous, messages, secret messages, anonymous messaging, anonymous.pxxl.click">
+  <meta name="author" content="Anonymous.pxxl.click">
 
-    .container {
-      background-color: #fff;
-      padding: 30px;
-      width: 90%;
-      max-width: 500px;
-      margin: 40px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
+  <!-- Favicon -->
+  <link rel="icon" href="anon.png" type="image/png">
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-    }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Anonymous Messages | anonymous.pxxl.click">
+  <meta property="og:description" content="Send and receive anonymous messages easily and securely.">
+  <meta property="og:image" content="https://anonymous.pxxl.click/anon.png">
+  <meta property="og:url" content="https://anonymous.pxxl.click">
+  <meta property="og:type" content="website">
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anonymous Messages | anonymous.pxxl.click">
+  <meta name="twitter:description" content="Send and receive anonymous messages easily and securely.">
+  <meta name="twitter:image" content="https://anonymous.pxxl.click/anon.png">
 
-    input {
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-
-    button {
-      padding: 12px;
-      background-color: #631D76;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #AF8CB9;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 10px;
-      color: #777;
-    }
-
-    .footer a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    .error-message {
-      margin-top: -1.2rem;
-      background-color: #ffe5e5;
-      width: 100%;
-      color: #cc0000;
-      padding: 10px 15px;
-      border: 1px solid #ff9999;
-      border-radius: 4px;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-
-    .spinner {
-      width: 1.5rem;
-      height: 1.5rem;
-      border: 5px solid #ccc;
-      border-top: 5px solid #222;
-      border-radius: 50%;
-      animation: spin 0.9s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  </style>
+  <!-- Other -->
+  <meta name="robots" content="index, follow">
 </head>
-<body>
-  <center style="color: black; font-size: 3rem; font-family: 'Sacramento', cursive; margin-top: 30px;">
-    Welcome to anonymous message🕺
-  </center>
+  <title>Register</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start">
 
-  <div class="container">
-    <h2>Create Account</h2>
-    <form id="form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="password" id="password" name="password" placeholder="Create Password" required>
-      <input type="password" id="confirm" placeholder="Confirm Password" required>
-      <button type="submit" id="submit">Register</button>
+  <!-- Header -->
+  <h1 class="text-xl mt-4 md:text-3xl font-sans text-black font-bold">
+    Welcome to anonymous messages 🕺
+  </h1>
+
+  <!-- Container -->
+  <div class="bg-white mt-8 p-8 rounded-xl shadow-md w-11/12 max-w-md">
+    <h2 class="text-2xl text-center text-gray-800 mb-6 font-semibold">Create Account</h2>
+
+    <!-- Form -->
+    <form id="form" class="flex flex-col gap-4">
+      <input type="text" name="name" placeholder="Your Name" required
+             class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      <input type="email" name="email" placeholder="Email Address" required
+             class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      <input type="password" id="password" name="password" placeholder="Create Password" required
+             class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      <input type="password" id="confirm" placeholder="Confirm Password" required
+             class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      <button type="submit" id="submit"
+              class="p-3 bg-purple-800 text-white rounded-md text-lg hover:bg-purple-400 transition-colors">
+        Register
+      </button>
     </form>
-    <div class="footer">
-      Already have an account? <a href="login.php">Login</a>
+
+    <!-- Footer -->
+    <div class="text-center text-gray-600 text-sm mt-4">
+      Already have an account? 
+      <a href="login.php" class="text-blue-500 hover:underline">Login</a>
     </div>
   </div>
 
-  <div id="loader" style="display: none;">
-    <div class="spinner"></div>
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 bg-white bg-opacity-70 flex items-center justify-center hidden">
+    <div class="w-6 h-6 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
   </div>
 
-  <div class="error-message" id="errorBox" style="display: none;"></div>
+  <!-- Error Box -->
+  <div id="errorBox" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md text-center mt-4 w-11/12 max-w-md"></div>
 
+  <!-- JS -->
   <script src="register.js"></script>
+
+  <?php 
+    // include PHP backend handling if needed
+    // include "registerval.php"; 
+  ?>
 </body>
 </html>

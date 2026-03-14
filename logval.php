@@ -15,7 +15,10 @@ if (empty($email) || empty($password)) {
     echo json_encode(["success" => false, "message" => "Email and password  required"]);
     exit;
 }
-
+if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+   echo json_encode(["success"=> false, "message"=> "input correct email format"]);
+   exit;
+    }
 
 $sql = "SELECT id, password FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);

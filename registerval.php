@@ -1,5 +1,6 @@
 <?php 
- include "dbjson.php";
+  header("Content-Type: application/json");
+  include "dbjson.php";
   if($_SERVER["REQUEST_METHOD"]!== "POST"){
      echo json_encode(["success"=> false, "message"=> "Go register properly"]);
      exit;

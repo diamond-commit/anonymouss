@@ -37,109 +37,53 @@ $sql = "SELECT inbox.id AS inbox_id, message
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="anon.png">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color : #F2D69F;
-  padding-bottom: 80px; /* space for button */
-}
-
-header {
-  background-color: #222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-family: 'Sacramento', cursive;
-  font-size: 2.5rem;
-}
-
-.messages-container {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.message-card {
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  overflow: hidden;
-  max-height: 4.5rem;
-  position: relative;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.message-card p {
-  font-size: 1.35rem;
-  color: #333;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-
-.share-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 14px 24px;
-  background-color: #222;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
-}
-
-.share-btn:hover {
-  background-color: #444;
-}
-.delete {
-  cursor: pointer;
-  font-size: 2rem;
-  color: red;
-  margin-left: 10px;
-}
-  </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Welcome back,<?=htmlspecialchars($nameRow["name"])?> </h1>
+<body class="bg-yellow-100 min-h-screen flex flex-col items-center">
+
+  <!-- Header -->
+  <header class="w-full bg-gray-900 text-white py-6 text-center">
+    <h1 class="text-3xl md:text-5xl font-sans font-bold">
+      Welcome back, <?=htmlspecialchars($nameRow["name"])?>
+    </h1>
   </header>
-    
-  <main class="messages-container">
-<?php if (count($results) > 0): ?>
-    <?php foreach($results as $row): ?>
-        <div style="display: flex">
-            <div class="message-card">
-                <p><?= htmlspecialchars($row["message"]) ?></p>
-            </div>
-            <span data-id="<?= htmlspecialchars($row["inbox_id"]) ?>" class="delete">🗑</span>
+
+  <!-- Main Content -->
+  <main class="w-11/12 max-w-3xl mt-6 flex flex-col gap-4 mb-24">
+    <?php if (count($results) > 0): ?>
+      <?php foreach($results as $row): ?>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-white p-4 rounded-xl shadow-md transition hover:shadow-lg">
+          <p class="text-gray-800 text-base md:text-lg break-words mb-2 md:mb-0">
+            <?= htmlspecialchars($row["message"]) ?>
+          </p>
+          <button  data-id="<?= htmlspecialchars($row["inbox_id"]) ?>"
+                  class="delete bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded-md text-sm md:text-base transition">
+            Delete
+          </button>
         </div>
-    <?php endforeach; ?>
-<?php else: ?>
-    <p style="text-align: center; margin-top: 30px; color: #888; font-size: 1.8rem;">
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p class="text-center text-gray-600 text-lg md:text-2xl mt-8">
         No messages yet... 😴
-    </p>
-<?php endif; ?>
+      </p>
+    <?php endif; ?>
   </main>
- <input type="hidden" value="https://anonymous.pxxl.click/send.php?id=<?= htmlspecialchars($_SESSION['id']) ?>" id="link">
-  <button class="share-btn" id="share"> copy link </button>
+
+  <!-- Copy Link Button -->
+  <div class="fixed bottom-6 md:bottom-8 w-full flex justify-center">
+    <button id="share" class="bg-gray-900 hover:bg-gray-700 text-white py-2 px-6 md:py-3 md:px-8 rounded-full text-lg transition">
+      Copy Link
+    </button>
+  </div>
+
+  <!-- Hidden Input for Link -->
+  <input type="hidden" id="link" value="https://anonymous.pxxl.click/send.php?id=<?= htmlspecialchars($_SESSION['id']) ?>">
+
+  <!-- JS -->
+  <script src="dashboard.js"></script>
 </body>
-<script src="dashboard.js"></script>
 </html>

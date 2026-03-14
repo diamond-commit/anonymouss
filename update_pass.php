@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (count($row) === 0) {
-        echo  => "Invalid token";
+        echo  "Invalid token";
         exit;
     }
 
