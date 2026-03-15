@@ -12,6 +12,7 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
 
   <!-- Container -->
+<div class="flex flex-col gap-2">
   <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
     <form id="form" class="flex flex-col gap-4">
       <h2 class="text-2xl text-center text-gray-800 font-semibold">Forgot Password</h2>
@@ -29,6 +30,13 @@
       </button>
     </form>
   </div>
+   
+   
+   
+   <div class="hidden text-xl md:text-2xl m-3 md:m-6" id="resetDiv">
+    <a href="" id="resetlink"></a>
+   </div>
+</div>
 
 </body>
 <script src="forgot.js"></script>
