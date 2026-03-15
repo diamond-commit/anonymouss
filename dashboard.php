@@ -40,6 +40,7 @@ $sql = "SELECT inbox.id AS inbox_id, message
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard</title>
+    <link rel="icon" href="anon.png" type="image/png">
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>

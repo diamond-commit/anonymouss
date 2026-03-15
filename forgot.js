@@ -27,6 +27,7 @@
             errorbox.style.display = "block"
         }
     } catch (error) {
-          console.log(error)       
+                 errorbox.textContent = "something wrong, try again later"
+            errorbox.style.display = "block"
     }
   }
