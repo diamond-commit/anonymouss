@@ -21,7 +21,7 @@ let resetDiv = document.getElementById("resetDiv")
             return
         }
         let data = await response.json()
-        if(data){
+        if(data.success){
             resetDiv.style.display = "block"
             resetlink.textContent= `click here to reset`
             resetlink.href= data.resetLink

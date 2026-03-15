@@ -9,6 +9,7 @@ $id = $_GET["id"];
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Send Anonymous Message</title>
   <!-- Tailwind CDN -->
      <link rel="icon" href="anon.png" type="image/png">
