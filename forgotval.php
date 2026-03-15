@@ -61,7 +61,7 @@ if (!$stmt1->execute([$email, $token, $expire])) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'fawasdiamond2007@gmail.com';
-        $mail->Password = 'lzzg xvow judw tgbi'; // app password
+        $mail->Password = 'zmku wone skum zzpk'; // app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
