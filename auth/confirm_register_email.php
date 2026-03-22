@@ -17,9 +17,9 @@
    $token = bin2hex(random_bytes(32));
    $expire = date("Y-m-d H:i:s", strtotime("+1 hour"));
      
-$resetLink = "https://anonymous.pxxl.click/registerval.php?token=$token";
+   $resetLink = "https://anonymous.pxxl.click/auth/registerval.php?token=$token";
    // if you testing locally
-  // $resetLink = "http://localhost/anonymous/registerval.php?token=$token";
+ //  $resetLink = "http://localhost/anonymous/auth/registerval.php?token=$token";
    
 if(empty($name)){
     echo json_encode(["success"=> false, "message"=> "Name cannot be empty"]);

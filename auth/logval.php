@@ -46,5 +46,5 @@ if (!password_verify($password, $user["password"])) {
 }
 
 $_SESSION["id"] = $user["id"];
-echo json_encode(["success" => true, "message" => "Login successful", "redirect" => "../dashboard.php"]);
+echo json_encode(["success" => true, "message" => "Login successful", "redirect" => "dashboard.php"]);
 ?>

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo  "DB query failed";
     exit;
 }
-    if (!$stmt->execute($token)) {
+    if (!$stmt->execute([$token])) {
     echo  "DB execution failed";
     exit;
 }
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($update->execute([$hashedPass, $email])) {
         // 3. Delete used token
         $delete = $conn->prepare("DELETE FROM reset WHERE token = ?");
-        $delete->execute($token);
+        $delete->execute([$token]);
         echo  "Password updated successfully";
     } else {
         echo  "Failed to update password";

@@ -1,5 +1,5 @@
 <?php
-  $host = 'db.pxxl.pro'; // or 127.0.0.1
+ /* $host = 'db.pxxl.pro'; // or 127.0.0.1
 $db   = 'pxxldb_mmqydfh965cb0f1';
 $user = 'pxxluser_mmqydfh9c34d26d';
 $pass = '98c4557d5ddc3d3e5a4444384c8447c7bda2076daa42dd4f329fb51a50866aae'; // replace this with your actual password
@@ -13,11 +13,9 @@ try {
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
-}
+} */
  
 
-
-   /*
 $host = '127.0.0.1'; // or 'localhost'
 $db   = "anonymous";
 $user = 'postgres'; // default postgres user
@@ -35,5 +33,5 @@ try {
 
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
-}   */
+}   
 ?>

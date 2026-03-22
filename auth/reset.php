@@ -10,8 +10,8 @@
    }
    $token = $_GET["token"];
        
-
-   $sql = "SELECT  expire, user_id FROM reset WHERE token =?";
+  //confirm token is from db
+   $sql = "SELECT  expire FROM reset WHERE token =?";
    $stmt = $conn->prepare($sql);
    if (!$stmt) {
     echo  "DB query failed";
@@ -33,7 +33,7 @@
     exit;
   }
 
-  $user_id = $row["user_id"];
+  
      
 
    header("Location: ../update_pass.php?token=$token");

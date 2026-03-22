@@ -11,7 +11,7 @@
  })
   async function send(formData) {
     try {
-        let response = await fetch("../auth/forgotval.php", {
+        let response = await fetch("/anonymous/auth/forgotval.php", {
             method: "POST",
             body: formData
         })

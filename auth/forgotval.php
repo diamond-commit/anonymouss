@@ -34,8 +34,8 @@ if (!$stmt->execute([$email, $token, $expire, ])) {
     exit(json_encode(["success"=>false,"message"=>"DB execution failed"]));
 }
 
- $resetLink = "https://anonymous.pxxl.click/reset.php?token=$token";
-// $resetLink = "http://localhost/anonymous/reset.php?token=$token";
+  $resetLink = "https://anonymous.pxxl.click/auth/reset.php?token=$token";
+   //$resetLink = "http://localhost/anonymous/auth/reset.php?token=$token";
 
 
 // Send email via Gmail SMTP

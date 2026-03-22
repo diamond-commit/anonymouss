@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function del(id) {
     try {
-      let response = await fetch(`../auth/delete.php?id=${id}`);
+      let response = await fetch(`/anonymous/auth/delete.php?id=${id}`);
       let data = await response.json();
       if (data.redirect) {
         window.location.href = data.redirect;
