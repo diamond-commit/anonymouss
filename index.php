@@ -3,40 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anonymous Messages | anonymous.pxxl.click</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Send and receive anonymous messages easily and securely on anonymous.pxxl.click.">
-  <meta name="keywords" content="anonymous, messages, secret messages, anonymous messaging, anonymous.pxxl.click">
-  <meta name="author" content="Anonymous.pxxl.click">
-
-  <!-- Favicon -->
-  <link rel="icon" href="anon.png" type="image/png">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Anonymous Messages | anonymous.pxxl.click">
-  <meta property="og:description" content="Send and receive anonymous messages easily and securely.">
-  <meta property="og:image" content="https://anonymous.pxxl.click/anon.png">
-  <meta property="og:url" content="https://anonymous.pxxl.click">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Anonymous Messages | anonymous.pxxl.click">
-  <meta name="twitter:description" content="Send and receive anonymous messages easily and securely.">
-  <meta name="twitter:image" content="https://anonymous.pxxl.click/anon.png">
-
-  <!-- Other -->
-  <meta name="robots" content="index, follow">
-</head>
-  <title>Register</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+  <title>Login</title>
   <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+
+   <meta property="og:title" content="Send anonymous messages to friends or family">
+<meta property="og:description" content="Drop a message anonymously 👀">
+<meta property="og:image" content="https://anonymous.pxxl.click/images/anony.jpeg">
+<meta property="og:url" content="https://anonymous.click">
+ 
+
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start">
 
@@ -81,11 +57,7 @@
   <div id="errorBox" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md text-center mt-4 w-11/12 max-w-md"></div>
 
   <!-- JS -->
-  <script src="register.js"></script>
+  <script src="js/register.js"></script>
 
-  <?php 
-    // include PHP backend handling if needed
-    // include "registerval.php"; 
-  ?>
 </body>
 </html>

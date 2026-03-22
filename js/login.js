@@ -10,7 +10,7 @@
   })
      async function send(formData) {
         try {
-            let response = await fetch("logval.php", {
+            let response = await fetch("../auth/logval.php", {
                 method : "POST",
                 body : formData
             })

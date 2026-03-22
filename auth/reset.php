@@ -1,5 +1,5 @@
 <?php 
- include "db.php";
+ include "../config/db.php";
    if($_SERVER["REQUEST_METHOD"]!== "GET"){
     echo "Try again";
     exit;
@@ -11,7 +11,7 @@
    $token = $_GET["token"];
        
 
-   $sql = "SELECT email, expire FROM reset WHERE token =?";
+   $sql = "SELECT  expire, user_id FROM reset WHERE token =?";
    $stmt = $conn->prepare($sql);
    if (!$stmt) {
     echo  "DB query failed";
@@ -23,7 +23,7 @@
     exit;
   }
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  if(count($row) === 0){
+  if(!$row){
     echo "Token does not exist";
     exit;
   }
@@ -32,6 +32,10 @@
     echo "Token is expired";
     exit;
   }
-   header("Location: update_pass.php?token=$token");
+
+  $user_id = $row["user_id"];
+     
+
+   header("Location: ../update_pass.php?token=$token");
    exit;
 ?>

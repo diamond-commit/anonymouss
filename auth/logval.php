@@ -1,5 +1,5 @@
 <?php 
- include "dbjson.php";
+ include "../config/dbjson.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -20,7 +20,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
    exit;
     }
 
-$sql = "SELECT id, password FROM users WHERE email = ?";
+$sql = "SELECT id, password FROM users WHERE lower(email) = lower(?)";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
@@ -46,5 +46,5 @@ if (!password_verify($password, $user["password"])) {
 }
 
 $_SESSION["id"] = $user["id"];
-echo json_encode(["success" => true, "message" => "Login successful", "redirect" => "dashboard.php"]);
+echo json_encode(["success" => true, "message" => "Login successful", "redirect" => "../dashboard.php"]);
 ?>

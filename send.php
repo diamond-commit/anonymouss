@@ -1,9 +1,9 @@
 <?php 
-if (!isset($_GET["id"])) {
+if (!isset($_GET["name"])) {
   echo "no user specified";
   exit;
 }
-$id = $_GET["id"];
+$name = $_GET["name"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +12,15 @@ $id = $_GET["id"];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Send Anonymous Message</title>
   <!-- Tailwind CDN -->
-     <link rel="icon" href="anon.png" type="image/png">
+
+<meta property="og:title" content="Send anonymous messages to <?php echo $name; ?>">
+<meta property="og:description" content="Drop a message anonymously 👀">
+<meta property="og:image" content="https://anonymous.pxxl.click/images/anony.jpeg">
+<meta property="og:url" content="https://anonymous.click/@<?php echo $name; ?>">
+
+     <link rel="icon" href="images/anon.jpeg" type="image/jpeg">
   <script src="https://cdn.tailwindcss.com"></script>
+  
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start px-4">
 
@@ -33,7 +40,7 @@ $id = $_GET["id"];
     <div class="bg-white w-full max-w-md p-6 rounded-xl shadow-lg flex flex-col gap-4">
       <h2 class="text-2xl font-bold text-center mb-4">Send an Anonymous Message</h2>
       <form id="form" class="flex flex-col gap-3">
-        <input type="hidden" name="id" value="<?=htmlspecialchars($id)?>">
+        <input type="hidden" name="name" value="<?=htmlspecialchars($name)?>">
         <textarea name="message" placeholder="Type your message here..." required maxlength="200"
                   class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 resize-none"></textarea>
         <button type="submit" class="bg-purple-800 text-white p-3 rounded-md hover:bg-purple-400 transition-colors">
@@ -63,7 +70,7 @@ $id = $_GET["id"];
       const formData = new FormData(form);
 
       try {
-        const response = await fetch("sendval.php", {
+        const response = await fetch("auth/sendval.php", {
           method: "POST",
           body: formData
         });

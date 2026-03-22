@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
   <!-- Tailwind CDN -->
-     <link rel="icon" href="anon.png" type="image/png">
+   
+
+   <meta property="og:title" content="Send anonymous messages to friends or family">
+<meta property="og:description" content="Drop a message anonymously 👀">
+<meta property="og:image" content="https://anonymous.pxxl.click/images/anony.jpeg">
+<meta property="og:url" content="https://anonymous.click">
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start">
@@ -61,6 +67,6 @@
   <div id="errorBox" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md text-center mt-4 w-11/12 max-w-md"></div>
 
   <!-- JS -->
-  <script src="login.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>

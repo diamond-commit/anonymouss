@@ -1,5 +1,5 @@
 <?php
- include "db.php";
+ include "config/db.php";
 $token = $_GET['token'] ?? null;
 
 if (!$token && $_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Password</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="anon.png">
+    <link rel="icon" type="image/png" href="images/anony.png">
   <style>
     * {
       box-sizing: border-box;

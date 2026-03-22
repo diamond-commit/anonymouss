@@ -2,7 +2,7 @@
  let form = document.getElementById("form")
  let errorbox = document.getElementById("errorBox")
  //let message = document.getElementById("message")
-let resetDiv = document.getElementById("resetDiv")
+//let resetDiv = document.getElementById("resetDiv")
  let resetlink = document.getElementById("resetlink")
  form.addEventListener("submit", function(e){
     e.preventDefault()
@@ -11,7 +11,7 @@ let resetDiv = document.getElementById("resetDiv")
  })
   async function send(formData) {
     try {
-        let response = await fetch("forgotval.php", {
+        let response = await fetch("../auth/forgotval.php", {
             method: "POST",
             body: formData
         })
@@ -22,16 +22,13 @@ let resetDiv = document.getElementById("resetDiv")
         }
         let data = await response.json()
         if(data.success){
-            resetDiv.style.display = "block"
-            resetlink.textContent= `click here to reset`
-            resetlink.href= data.resetLink
-            return
+            alert(data.message)
         }else{
-            errorbox.textContent = data.message
+            errorbox.textContent = 'sumtin wrong, Try again later'
             errorbox.style.display = "block"
         }
     } catch (error) {
-        errorbox.textContent = error
+        errorbox.textContent = "sumtin wrong, Try again later"
         errorbox.style.display = "block"
     }
   }

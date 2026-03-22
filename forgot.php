@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Forgot Password</title>
-  <link rel="icon" href="anon.png" type="image/x-icon">
+  <link rel="icon" href="images/anon.png" type="image/x-icon">
   
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +19,7 @@
       <p class="text-center text-gray-600 text-sm">Enter your email and we’ll send a reset link</p>
 
       <!-- Message box for errors/success -->
-      <div id="messageBox" class="hidden text-red-600 text-sm text-center"></div>
+      <div id="errorBox" class="hidden text-red-600 text-sm text-center"><p></p></div>
 
       <input type="email" id="email" name="email" placeholder="Email address" required
              class="p-3 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
@@ -32,12 +32,8 @@
   </div>
    
    
-   
-   <div class="hidden text-xl md:text-2xl m-3 md:m-6" id="resetDiv">
-    <a href="" id="resetlink"></a>
-   </div>
 </div>
 
 </body>
-<script src="forgot.js"></script>
+<script src="js/forgot.js"></script>
 </html>

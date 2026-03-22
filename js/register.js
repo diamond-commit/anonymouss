@@ -24,7 +24,7 @@ console.log("Confirm:", confir.value);
  })
   async function send(formData) {
     try {
-        let response = await fetch("registerval.php", {
+        let response = await fetch("../auth/confirm_register_email.php", {
             method : "POST",
             body : formData
         })
@@ -37,9 +37,9 @@ console.log("Confirm:", confir.value);
         if(data.success){
           loader.style.display = "none"
           alert(data.message)
-            setTimeout(() => {
+          /*  setTimeout(() => {
               window.location.href = data.redirect
-            }, 3000);
+            }, 3000); */
              
         }else{
             loader.style.display = "none"
@@ -53,6 +53,5 @@ console.log("Confirm:", confir.value);
         errorbox.textContent = "sum went wrong"
         errorbox.style.display = "block"
         console.log(error)
-        
     }
   }

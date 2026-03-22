@@ -1,5 +1,5 @@
 <?php
-   include "dbjson.php";
+   include "../config/dbjson.php";
 session_start();
 
 if (!isset($_SESSION["id"])) {
@@ -27,7 +27,7 @@ if (!$stmt) {
 }
 
 if ($stmt->execute([$message_id, $user_id])) {
-    echo json_encode(["status" => "success", "message" => "Message deleted", "redirect"=> "dashboard.php"]);
+    echo json_encode(["status" => "success", "message" => "Message deleted", "redirect"=> "../dashboard.php"]);
 } else {
     echo json_encode(["status" => false, "message" => "Delete failed"]);
 }

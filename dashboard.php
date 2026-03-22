@@ -1,5 +1,5 @@
 <?php 
-   include "db.php";
+   include "config/db.php";
   session_start();
   if (!isset($_SESSION["id"])) {
     header("Location: login.php");
@@ -40,7 +40,7 @@ $sql = "SELECT inbox.id AS inbox_id, message
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard</title>
-    <link rel="icon" href="anon.png" type="image/png">
+    <link rel="icon" href="images/anon.png" type="image/png">
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -82,9 +82,9 @@ $sql = "SELECT inbox.id AS inbox_id, message
   </div>
 
   <!-- Hidden Input for Link -->
-  <input type="hidden" id="link" value="https://anonymous.pxxl.click/send.php?id=<?= htmlspecialchars($_SESSION['id']) ?>">
+  <input type="hidden" id="link" value="https://anonymous.pxxl.click/send.php?name=<?= htmlspecialchars($nameRow["name"]) ?>">
 
   <!-- JS -->
-  <script src="dashboard.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
