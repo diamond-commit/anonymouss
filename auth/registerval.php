@@ -45,5 +45,6 @@
      $delete =  $conn->prepare("delete from pending_user where token =?");
      $delete->execute([$token]);
         header("Location: ../login.php");
+        exit;
      $conn = null;
 ?>
