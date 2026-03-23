@@ -24,7 +24,7 @@ console.log("Confirm:", confir.value);
  })
   async function send(formData) {
     try {
-        let response = await fetch("/anonymous/auth/confirm_register_email.php", {
+        let response = await fetch("/auth/confirm_register_email.php", {
             method : "POST",
             body : formData
         })
