@@ -23,7 +23,7 @@ console.log("Confirm:", confir.value);
 
  })
   async function send(formData) {
-    console.log("🚀 Sending request...");
+    
 
     try {
         let response = await fetch("auth/confirm_register_email.php", {
@@ -31,13 +31,10 @@ console.log("Confirm:", confir.value);
             body: formData
         });
 
-        console.log("📡 Status:", response.status);
-        console.log("🔗 URL:", response.url);
-
+        
         // If server responded but with error (like 404, 500)
         if (!response.ok) {
             const text = await response.text(); // get raw response
-            console.error("❌ Server error response:", text);
 
             errorbox.textContent = `Error: ${response.status}`;
             errorbox.style.display = "block";
@@ -50,14 +47,13 @@ console.log("Confirm:", confir.value);
             data = await response.json();
         } catch (e) {
             const text = await response.text();
-            console.error("❌ Not valid JSON:", text);
-
+            
             errorbox.textContent = "Invalid server response";
             errorbox.style.display = "block";
             return;
         }
 
-        console.log("✅ Response data:", data);
+        
 
         if (data.success) {
             loader.style.display = "none";
@@ -74,7 +70,7 @@ console.log("Confirm:", confir.value);
             loader.style.display = "none";
             errorbox.textContent = data.message;
             errorbox.style.display = "block";
-            console.log("⚠️ Backend message:", data.message);
+           
             return;
         }
 
@@ -82,6 +78,6 @@ console.log("Confirm:", confir.value);
         loader.style.display = "none";
         errorbox.textContent = "Something went wrong";
         errorbox.style.display = "block";
-        console.error("🔥 Fetch crashed:", error);
+        
     }
 }
