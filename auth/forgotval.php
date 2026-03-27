@@ -35,7 +35,7 @@ if (!$stmt->execute([$email, $token, $expire, ])) {
 }
 
   $resetLink = "https://anonymous.pxxl.click/auth/reset.php?token=$token";
-   //$resetLink = "http://localhost/anonymous/auth/reset.php?token=$token";
+  // $resetLink = "http://localhost/anonymous/auth/reset.php?token=$token";
 
 
 // Send email via Gmail SMTP

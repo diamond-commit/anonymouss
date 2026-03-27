@@ -23,35 +23,65 @@ console.log("Confirm:", confir.value);
 
  })
   async function send(formData) {
+    console.log("🚀 Sending request...");
+
     try {
         let response = await fetch("auth/confirm_register_email.php", {
-            method : "POST",
-            body : formData
-        })
-        if(!response.ok){
-            errorbox.textContent = `Error : ${response.status}`
-            errorbox.style.display = "block"
-            return
+            method: "POST",
+            body: formData
+        });
+
+        console.log("📡 Status:", response.status);
+        console.log("🔗 URL:", response.url);
+
+        // If server responded but with error (like 404, 500)
+        if (!response.ok) {
+            const text = await response.text(); // get raw response
+            console.error("❌ Server error response:", text);
+
+            errorbox.textContent = `Error: ${response.status}`;
+            errorbox.style.display = "block";
+            return;
         }
-        let data = await response.json()
-        if(data.success){
-          loader.style.display = "none"
-          alert(data.message)
-          /*  setTimeout(() => {
-              window.location.href = data.redirect
-            }, 3000); */
-             
-        }else{
-            loader.style.display = "none"
-          errorbox.textContent = data.message
-            errorbox.style.display = "block"
-            console.log(data.message)
-          return;
+
+        // Try parsing JSON
+        let data;
+        try {
+            data = await response.json();
+        } catch (e) {
+            const text = await response.text();
+            console.error("❌ Not valid JSON:", text);
+
+            errorbox.textContent = "Invalid server response";
+            errorbox.style.display = "block";
+            return;
         }
+
+        console.log("✅ Response data:", data);
+
+        if (data.success) {
+            loader.style.display = "none";
+            alert(data.message);
+
+            // optional redirect
+            /*
+            setTimeout(() => {
+                window.location.href = data.redirect;
+            }, 3000);
+            */
+
+        } else {
+            loader.style.display = "none";
+            errorbox.textContent = data.message;
+            errorbox.style.display = "block";
+            console.log("⚠️ Backend message:", data.message);
+            return;
+        }
+
     } catch (error) {
-        loader.style.display = "none"
-        errorbox.textContent = "sum went wrong"
-        errorbox.style.display = "block"
-        console.log(error)
+        loader.style.display = "none";
+        errorbox.textContent = "Something went wrong";
+        errorbox.style.display = "block";
+        console.error("🔥 Fetch crashed:", error);
     }
-  }
+}
